@@ -1,0 +1,32 @@
+<div class="card" style="max-width: 400px;">
+   <div class="card-header">
+    <h2>Please Login to Continue</h2>
+   </div>
+   <div class="card-body">
+    <div *ngIf="step=='1'" class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" [(ngModel)]="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div *ngIf="step=='2'" class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"  [(ngModel)]="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div *ngIf="step=='3'" class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">OTP (Google Authenticator)</label>
+        <input type="text" [(ngModel)]="otp" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div *ngIf="step=='4'" class="mb-3">
+        <h2>Ready for 2FA?</h2>
+        <p>Download the Google Authenticator app and setup 2 Factor Authentication.</p>
+        <p>Without 2 Factor Authentication you will not be able to digitally sign or upload documents.</p>
+        <input type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div *ngIf="step=='4'" class="mb-3">
+        <h2>Enter the next code displayed on Google Authenticator.</h2>
+        <p>Wait for the next code to be displayed and then enter it to continue.  This will confirm that Google Authenticator was setup correclty.</p>
+        <input type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button (click)="nextStep()" class="btn btn-primary">Next</button>
+   </div>
+</div>
