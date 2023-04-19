@@ -31,7 +31,7 @@ export class EnableGoogleAuthenticatorComponent implements OnInit {
       email: this.otp
     }
 
-    this._dataService.postRegister("post-register", formData).subscribe((data:any)=>{
+    this._dataService.postRegister("post-enroll-2fa", formData).subscribe((data:any)=>{
       if (data?.error_code=="0") {
         localStorage.setItem('uid',data.user.uid)
         localStorage.setItem('role',data.user.role)

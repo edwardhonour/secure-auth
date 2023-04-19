@@ -30,12 +30,13 @@ export class SigninComponent {
       showPassword: boolean = false;
       error: any = '';
       email: any = '';
+      uid: any = 0;
 
       constructor(private _dataService: DataService, private _router: Router) { }
 
       nextStep() {
         if (this.step=='3') { 
-
+           this.postOTP();
         }
         if (this.step=='2') { 
           this.postForm();
@@ -64,6 +65,7 @@ export class SigninComponent {
                localStorage.setItem('fa2','N')
                this._router.navigate(['/home']);              
             } else {
+               this.uid=data.uid;
                this.step=3;
             }
           } else {      
@@ -73,7 +75,7 @@ export class SigninComponent {
       }
 
       postOTP() {
-        this._dataService.post2FALogin(this.email, this.otp).subscribe((data:any)=>{
+        this._dataService.post2FALogin(this.uid, this.otp).subscribe((data:any)=>{
           this.data=data;
           if (data?.error_code=="0") {
             if (data.fa2=='N') {

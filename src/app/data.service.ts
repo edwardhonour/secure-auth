@@ -104,8 +104,8 @@ export class DataService {
   post2FALogin(username: any, password: any) {
     const data = {
       "q" : "login2FA",
-      "username": username,
-      "password": password
+      "uid": username,
+      "otp": password
     }
     console.log(data)
     this.t= this.http.post('https://protectivesecurity.org/api/auth.php', data);
