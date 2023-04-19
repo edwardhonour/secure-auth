@@ -4,13 +4,21 @@
    </div>
    <div class="card-body">
     <div *ngIf="step=='1'" class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" [(ngModel)]="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <p>Email Address</p>
+      <mat-form-field style="width:95%"  appearance="outline">
+        <input matInput (keydown.enter)="nextStep()" [(ngModel)]="email" [type]="'text'" name="email">
+    </mat-form-field>
+      <div id="emailHelp" [innerHTML]="error" class="form-text" style="color:red"></div>
     </div>
     <div *ngIf="step=='2'" class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password"  [(ngModel)]="password" class="form-control" id="exampleInputPassword1">
+      <p>Password</p>
+      <mat-form-field style="width:95%"  appearance="outline">
+        <input [(ngModel)]="password"  matInput [type]="showPassword ? 'text' : 'password'" name="password">
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{showPassword?'visibility_off':'visibility'}}
+      </mat-icon>
+    </mat-form-field>
+      <div id="emailHelp" [innerHTML]="error" class="form-text" style="color:red"></div>
     </div>
     <div *ngIf="step=='3'" class="mb-3">
         <label for="exampleInputPassword1" class="form-label">OTP (Google Authenticator)</label>
@@ -28,5 +36,6 @@
         <input type="text" class="form-control" id="exampleInputPassword1">
     </div>
     <button (click)="nextStep()" class="btn btn-primary">Next</button>
+    <button *ngIf="step=='2'" (click)="nextStep()" class="btn btn-light">Start Over</button>
    </div>
 </div>

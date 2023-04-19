@@ -101,6 +101,39 @@ export class DataService {
     return this.t;
   }
 
+  post2FALogin(username: any, password: any) {
+    const data = {
+      "q" : "login2FA",
+      "username": username,
+      "password": password
+    }
+    console.log(data)
+    this.t= this.http.post('https://protectivesecurity.org/api/auth.php', data);
+    return this.t;
+  }
+
+    postRegister(q: any, formData: any) {
+    const data = {
+      "q" : q,
+      "formData": formData
+    }
+    console.log(data)
+    this.t= this.http.post('https://protectivesecurity.org/api/auth.php', data);
+    return this.t;
+  }
+
+  get2FACode(path: any) {
+    this.getLocalStorage();
+    const data = {
+      "q" : path,
+      "uid": this.uid
+    }
+
+  this.t= this.http.post('https://protectivesecurity.org/api/auth.php', data);
+  return this.t;
+
+  }
+
   getVerticalMenu() {
     this.getLocalStorage()
     const data = {

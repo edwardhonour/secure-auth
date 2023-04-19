@@ -1,0 +1,14 @@
+<div class="card" style="max-width: 500px;">
+    <div class="card-header">
+     <h2>Enable Google Authenticator</h2>
+    </div>
+    <div class="card-body">
+     <div class="mb-3">
+        <iframe style="width:220px; height:220px;" [src]="qrcode"></iframe>
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Enter Code from Authenticator</label>
+        <input type="text" name="first_name" [(ngModel)]="otp" class="form-control" id="first_name">
+    </div>
+     <button (click)="postForm()" class="btn btn-primary">Next</button>
+    </div>
+ </div>

@@ -1,0 +1,25 @@
+<div class="card" style="max-width: 500px;">
+    <div class="card-header">
+     <h2>Create an Account</h2>
+    </div>
+    <div class="card-body">
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Email address</label>
+       <input type="email" class="form-control" id="emai" name="emai" [(ngModel)]="data?.formData.email" aria-describedby="email">
+       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+     </div>
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Mobile Phone</label>
+        <input type="text" name="first_name" [(ngModel)]="data?.formData.phone_mobile" class="form-control" id="first_name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Choose Password</label>
+        <input type="password" name="last_name" [(ngModel)]="data?.formData.password" class="form-control" id="last_name">
+    </div>
+     <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Repeat Password</label>
+       <input type="text" name="phone_mobile" [(ngModel)]="data?.formData.password2" class="form-control" id="phone_mobile">  
+     </div>
+     <button (click)="postForm()" class="btn btn-primary">Actviate Account</button>
+    </div>
+ </div>
